@@ -17,6 +17,7 @@
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -41,7 +42,45 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top"></header>
+    <header class="container-fluid fixed-top">
+            <nav>
+                <ul class="horizontal-nav">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Walking Packages</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Gallery</a></li>
+                    <li><a href="">Reviews</a></li>
+                    <li><a href="">Cart</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="">Logout</a></li>
+                    <li><a href="">Profile</a></li>
+                    {% else %}
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+    </header>
+                
+    <main>
+                
+    </main>
+                
+    <footer>
+        <div class="container">
+            <h3>Connect with Us</h3>
+        </div>
+        <div class="container">
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <p>&copy; 2023 Hiking Walks</p>
+        </div>
+    </footer>
 
     {% if messages %}
     <div class="message-container"></div>
