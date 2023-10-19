@@ -4,7 +4,6 @@
 <html lang="en">
 
 <head>
-
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
@@ -25,8 +24,7 @@
 
     {% block corejs %}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" 
-        crossorigin="anonymous"></script>
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -42,30 +40,52 @@
 </head>
 
 <body>
+    <header class="container-fluid fixed-top"></header>
     <header class="container-fluid fixed-top">
-            <nav>
-                <ul class="horizontal-nav">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Walking Packages</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Gallery</a></li>
-                    <li><a href="">Reviews</a></li>
-                    <li><a href="">Cart</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a href="">Logout</a></li>
-                    <li><a href="">Profile</a></li>
-                    {% else %}
-                    <li><a href="">Login</a></li>
-                    <li><a href="">Register</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
+        <nav>
+            <ul class="horizontal-nav">
+                <li><a href="">Home</a></li>
+                <li><a href="">Walking Packages</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Reviews</a></li>
+                <li><a href="">Cart</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="">Logout</a></li>
+                <li><a href="">Profile</a></li>
+                {% else %}
+                <li><a href="">Login</a></li>
+                <li><a href="">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
     </header>
-                
+    
     <main>
-                
+    
     </main>
-                
+    
+    <footer>
+        <div class="container">
+            <h3>Connect with Us</h3>
+        </div>
+        <div class="container">
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <p>&copy; 2023 Hiking Walks</p>
+        </div>
+    </footer>
+
+
+    <main>
+
+    </main>
+
     <footer>
         <div class="container">
             <h3>Connect with Us</h3>
@@ -94,8 +114,6 @@
 
     {% block postloadjs %}
     {% endblock %}
-
-
 </body>
 
 </html>
