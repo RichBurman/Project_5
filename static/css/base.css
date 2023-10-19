@@ -72,3 +72,10 @@ footer .social-links li {
 .custom-card {
     margin-top: 20px;
 }
+
+/* index page styling */
+
+.content-container {
+    margin-top: 80px;
+    /* Keeping main below the nav bar container */
+}

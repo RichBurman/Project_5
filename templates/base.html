@@ -45,10 +45,10 @@
         <nav>
             <ul class="horizontal-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="">Walking Packages</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Gallery</a></li>
-                <li><a href="">Reviews</a></li>
+                <li><a href="{% url 'walking_packages' %}">Walking Packages</a></li>
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'reviews' %}">Reviews</a></li>
                 <li><a href="">Cart</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
@@ -60,30 +60,12 @@
             </ul>
         </nav>
     </header>
-    
-    <main>
-    
-    </main>
-    
-    <footer>
-        <div class="container">
-            <h3>Connect with Us</h3>
-        </div>
-        <div class="container">
-            <ul class="social-links">
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </div>
-        <div class="container">
-            <p>&copy; 2023 Hiking Walks</p>
-        </div>
-    </footer>
 
-
-    <main>
-
+    <main class="content-container">
+        <div class="container table-responsive">
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
 
     <footer>
@@ -107,9 +89,6 @@
     {% endif %}
 
     {% block page_header %}
-    {% endblock %}
-
-    {% block content %}
     {% endblock %}
 
     {% block postloadjs %}
