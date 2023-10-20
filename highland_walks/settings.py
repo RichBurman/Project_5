@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'user',
     'django_countries',
     'packages',
+    'reviews',
 ]
 
 MIDDLEWARE = [
