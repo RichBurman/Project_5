@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <h1>Your Shopping Cart</h1>
+
+    <ul>
+        {% for item in cart_items %}
+        <li>
+            <strong>Package:</strong> {{ item.package.title }}<br>
+            <strong>Quantity:</strong>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.quantity }}
+                <button type="submit">Update Quantity</button>
+            </form>
+            <strong>Price:</strong>
+            {% if request.user.is_authenticated %}
+            {{ item.package.discounted_price }}
+            {% else %}
+            {{ item.package.price }}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Total Price:</strong> {{ total_price }}</p>
+
+    <a href="{% url 'cart:cart_view' %}">View Cart</a>
+</body>
+
+</html>
