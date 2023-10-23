@@ -3,4 +3,14 @@
 
 {% block content %}
 <h1>Package List</h1>
+<ul>
+    {% for package in packages %}
+    <li>
+        <h2>{{ package.title }}</h2>
+        <p><strong>Description:</strong> {{ package.description }}</p>
+        <p><strong>Price:</strong> {{ package.price }}</p>
+        <p><strong>Discounted Price:</strong> {{ package.discounted_price }}</p>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
