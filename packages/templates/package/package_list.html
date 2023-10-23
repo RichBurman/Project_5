@@ -7,6 +7,7 @@
     {% for package in packages %}
     <li>
         <h2>{{ package.title }}</h2>
+        <img src="{{ package.image.url }}" alt="{{ package.title }}" style="max-width: 300px; height: auto;">
         <p><strong>Description:</strong> {{ package.description }}</p>
         <p><strong>Price:</strong> {{ package.price }}</p>
         <p><strong>Discounted Price:</strong> {{ package.discounted_price }}</p>
