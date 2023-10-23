@@ -10,6 +10,7 @@
         <strong>Comment:</strong> {{ review.comment }}<br>
         <strong>By:</strong> {{ review.user.username }}<br>
         <strong>Date:</strong> {{ review.created_at|date:"F j, Y" }}<br>
+        <strong>Package:</strong> {{ review.package.title }}<br>
         <a href="{% url 'reviews:create_review' package_id=review.package.id %}">Leave a Review</a>
     </li>
     {% endfor %}
