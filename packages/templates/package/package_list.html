@@ -8,10 +8,15 @@
     <li>
         <h2>{{ package.title }}</h2>
         <img src="{{ package.image.url }}" alt="{{ package.title }}" style="max-width: 300px; height: auto;">
-        <p><strong>Description:</strong> {{ package.description }}</p>
-        <p><strong>Price:</strong> {{ package.price }}</p>
-        <p><strong>Discounted Price:</strong> {{ package.discounted_price }}</p>
+        <p>{{ package.description }}</p>
+        <p>Price: ${{ package.price }}{% if user.is_authenticated %} (Discounted: ${{ package.discounted_price }}){% endif %}</p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'cart:add_to_cart' package.id %}">Add to Cart</a>
+        {% else %}
+            <a href="{% url 'cart:add_to_cart' package.id %}?non_registered=True">Add to Cart</a>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
+</div>
 {% endblock %}
