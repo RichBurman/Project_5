@@ -65,3 +65,13 @@ def add_to_cart(request, package_id):
         messages.success(request, 'Item added to the cart successfully.')
 
     return redirect('cart:cart_view')
+
+
+def remove_from_cart(request, item_id):
+    item = get_object_or_404(CartItem, id=item_id, user=request.user)
+
+    # Remove the item from the cart
+    item.delete()
+
+    messages.success(request, 'Item removed from the cart successfully!')
+    return redirect('cart:cart_view')

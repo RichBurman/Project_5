@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% load static %}
 
+{% block content %}
 <head>
     <title>Shopping Cart</title>
 </head>
@@ -24,6 +25,10 @@
             {% else %}
             {{ item.package.price }}
             {% endif %}
+            <form method="post" action="{% url 'cart:remove_from_cart' item.id %}">
+                {% csrf_token %}
+                <button type="submit">Remove</button>
+            </form>
         </li>
         {% endfor %}
     </ul>
@@ -33,4 +38,4 @@
     <a href="{% url 'cart:cart_view' %}">View Cart</a>
 </body>
 
-</html>
+{% endblock %}
