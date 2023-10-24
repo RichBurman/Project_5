@@ -7,6 +7,18 @@ from django.countries.fields import CountryField
 
 # Create your models here.
 
+class ShippingAddress(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    addressline_1 = models.CharField(max_length=50)
+    addressline_2 = models.CharField(max_length=50, blank=True)
+    county = models.CharField(max_length=30)
+    postcode = models.CharField(max_length=10)
+    country = CountryField()
+
+    def __str__(self):
+        return f"Shipping Address for {self.user.username}"
+
+
 class Order(models.Model):
     user = models.ForeignKey(get_user_models(), on_delete=models.CASCADE)
     items = models.ManyToManyField(CartItem)
@@ -23,13 +35,3 @@ class Order(models.Model):
     def __str__(self):
         return f"Order for {self.user} - {self.created_at}"
 
-class ShippingAddress(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    addressline_1 = models.CharField(max_length=50)
-    addressline_2 = models.CharField(max_length=50, blank=True)
-    county = models.CharField(max_length=30)
-    postcode = models.CharField(max_length=10)
-    country = CountryField()
-
-    def __str__(self):
-        return f"Shipping Address for {self.user.username}"
